@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.thibaut.rshulpapplicatie.HighscoreRS3Activity">
+    tools:context="com.example.thibaut.rshulpapplicatie.GEOSRSActivity">
     <EditText
-        android:id="@+id/usernameText"
+        android:id="@+id/itemText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Enter username"/>
+        android:hint="Enter item"/>
     <Button
         android:id="@+id/queryButton"
         android:layout_width="wrap_content"
@@ -18,7 +18,7 @@
         android:layout_gravity="end"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:text="Search"
-        android:onClick="getHighscore"/>
+        android:onClick="getItem"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,12 +32,15 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <LinearLayout
                 android:id="@+id/responseView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView" />
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>

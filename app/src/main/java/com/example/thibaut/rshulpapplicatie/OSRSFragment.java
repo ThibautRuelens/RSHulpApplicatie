@@ -36,7 +36,7 @@ public class OSRSFragment extends Fragment {
         GE.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent selectGEOSRS = new Intent(getActivity(),HighscoreRS3Activity.class);
+                Intent selectGEOSRS = new Intent(getActivity(),GEOSRSActivity.class);
                 selectGEOSRS.putExtra("Title","OSRS Grand Exchange");
                 startActivity(selectGEOSRS);
             }

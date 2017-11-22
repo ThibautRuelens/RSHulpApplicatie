@@ -1,5 +1,6 @@
 package com.example.thibaut.rshulpapplicatie;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,35 +22,41 @@ import java.util.concurrent.ExecutionException;
 
 public class HighscoreRS3Activity extends AppCompatActivity {
     public EditText usernameText;
-
+    ProgressBar pr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore_rs3);
         Bundle extras = getIntent().getExtras();
         String extra = extras.getString("Title");
+        pr = (ProgressBar)findViewById(R.id.progressBar);
+        pr.setVisibility(View.GONE);
         setTitle(extra);
     }
     public void getHighscore(View view) throws ExecutionException, InterruptedException {
-        Api api = new Api();
+        Api api = new Api(pr);
+        final Context context = this;
         usernameText = (EditText) findViewById(R.id.usernameText);
         String username = usernameText.getText().toString();
         username = username.replaceAll(" ", "+");
         String url = "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + username;
         Log.i("INFO", url);
-        String highscore = api.execute(url).get();
-        List<String> levels = Arrays.asList(highscore.split("\n"));
+        api.setListener(new Api.Listener(){
+
+            @Override
+            public void onTaskResult(String string) {
+        List<String> levels = Arrays.asList(string.split("\n"));
         List<String> defenition = Arrays.asList("Skill", "Rank", "Level", "XP");
         List<String> Skills = Arrays.asList("Header","Overall", "Attack", "Defence", "Strength", "Hitpoints", "Ranged", "Prayer", "Magic","Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting", "Smithing", "Mining", "Herblore","Agility", "Thieving", "Slayer", "Farming", "Runecraft", "Hunter", "Construction", "Summoning", "Dungeoneering", "Divination", "Inventions");
         LinearLayout responseview = (LinearLayout)findViewById(R.id.responseView);
         responseview.removeAllViews();
         for (int i = 0; i < Skills.size(); i++) {
-            LinearLayout newLayout = new LinearLayout(this);
+            LinearLayout newLayout = new LinearLayout(context);
             newLayout.setOrientation(LinearLayout.HORIZONTAL);
             newLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
             newLayout.setWeightSum(4);
             for (int j = 0; j < defenition.size(); j++) {
-                TextView newText = new TextView(this);
+                TextView newText = new TextView(context);
                 newText.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1f));
                 if (i == 0) {
                     newText.setText(defenition.get(j));
@@ -95,21 +102,9 @@ public class HighscoreRS3Activity extends AppCompatActivity {
             responseview.addView(newLayout);
         }
     }
-    public String[] splitStringEvery(String s, int interval) {
-        int arrayLength = (int) Math.ceil(((s.length() / (double)interval)));
-        String[] result = new String[arrayLength];
 
-        int j = 0;
-        int lastIndex = result.length - 1;
-        for (int i = 0; i < lastIndex; i++) {
-            result[i] = s.substring(j, j + interval);
-            j += interval;
-        } //Add the last bit
-        result[lastIndex] = s.substring(j);
 
-        return result;
+});
+        api.execute(url);
     }
-
-
 }
-
