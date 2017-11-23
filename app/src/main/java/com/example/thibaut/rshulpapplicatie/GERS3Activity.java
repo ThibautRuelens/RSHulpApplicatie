@@ -39,7 +39,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class GEOSRSActivity extends AppCompatActivity {
+public class GERS3Activity extends AppCompatActivity {
     public EditText itemText;
     public ProgressBar pr ;
     ListView list;
@@ -54,20 +54,19 @@ public class GEOSRSActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_geosrs);
+        setContentView(R.layout.activity_gers3);
         Bundle extras = getIntent().getExtras();
         String extra = extras.getString("Title");
         setTitle(extra);
         pr = (ProgressBar)findViewById(R.id.progressBar);
         pr.setVisibility(View.GONE);
     }
-
     public void getItem(View view) throws ExecutionException, InterruptedException {
         Api api = new Api(pr);
         itemText = (EditText) findViewById(R.id.itemText);
         String item = itemText.getText().toString();
         item = item.replaceAll(" ", "%20");
-        String url = "http://api.thibautruelens.tk/items.php?table=osrsitem&name=" + item;
+        String url = "http://api.thibautruelens.tk/items.php?table=rs3item&name=" + item;
         Log.i("INFO", url);
         api.setListener(new Api.Listener(){
 

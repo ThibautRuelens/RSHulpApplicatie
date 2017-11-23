@@ -35,7 +35,7 @@ public class RS3Fragment extends Fragment {
         GE.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent selectGERS3 = new Intent(getActivity(),HighscoreRS3Activity.class);
+                Intent selectGERS3 = new Intent(getActivity(),GERS3Activity.class);
                 selectGERS3.putExtra("Title","RS3 Grand Exchange");
                 startActivity(selectGERS3);
             }

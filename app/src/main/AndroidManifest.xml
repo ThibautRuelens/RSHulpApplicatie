@@ -32,7 +32,8 @@
             android:name=".MenuActivity"
             android:label="@string/title_activity_osrshighscore"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".GEOSRSActivity"></activity>
+        <activity android:name=".GEOSRSActivity"/>
+        <activity android:name=".GERS3Activity"/>
     </application>
 
 </manifest>
