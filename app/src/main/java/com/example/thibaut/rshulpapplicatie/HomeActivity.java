@@ -29,6 +29,14 @@ public class HomeActivity extends Activity
         btnSignIn=(Button)findViewById(R.id.buttonSignIN);
         btnSignUp=(Button)findViewById(R.id.buttonSignUP);
 
+        Boolean known = loginDataBaseAdapter.getCountEntry();
+        if(known == true)  {
+            Toast.makeText(HomeActivity.this, "Not logged out from last time", Toast.LENGTH_LONG).show();
+            Intent HomeGameScreen = new Intent(HomeActivity.this,MenuActivity.class);
+            startActivity(HomeGameScreen);
+
+        }
+
 // Set OnClick Listener on SignUp button
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

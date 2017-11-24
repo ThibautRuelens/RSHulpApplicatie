@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RSHulpApplicatie.iml" filepath="$PROJECT_DIR$/RSHulpApplicatie.iml" />
+      <module fileurl="file://C:\Users\User\Google Drive\school\3e\Android\RSHulpApplicatie2\RSHulpApplicatie.iml" filepath="C:\Users\User\Google Drive\school\3e\Android\RSHulpApplicatie2\RSHulpApplicatie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RSHulpApplicatie2.iml" filepath="$PROJECT_DIR$/RSHulpApplicatie2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\User\Google Drive\school\3e\Android\RSHulpApplicatie2\app\app.iml" filepath="C:\Users\User\Google Drive\school\3e\Android\RSHulpApplicatie2\app\app.iml" />
     </modules>
   </component>
 </project>

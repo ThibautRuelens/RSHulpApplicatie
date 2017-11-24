@@ -73,6 +73,16 @@ public class LoginDataBaseAdapter
         cursor.close();
         return password;
     }
+    public boolean getCountEntry()
+    {
+        Cursor cursor=db.query("LOGIN", null, null, null, null, null, null);
+        if(cursor.getCount()>0) // UserName Not Exist
+        {
+            cursor.close();
+            return true;
+        }
+        return false;
+    }
     public void updateEntry(String userName,String password)
     {
 // Define the updated row content.

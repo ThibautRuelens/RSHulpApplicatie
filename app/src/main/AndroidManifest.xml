@@ -26,7 +26,6 @@
         <activity android:name=".AndroidDatabaseManager" />
         <activity android:name=".HighscoreOSRSActivity" />
         <activity android:name=".HighscoreRS3Activity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
         <activity
             android:name=".MenuActivity"
