@@ -3,12 +3,20 @@ package com.example.thibaut.rshulpapplicatie;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class HomeActivity extends Activity
 {
@@ -66,24 +74,40 @@ public class HomeActivity extends Activity
 
             public void onClick(View v) {
 // get The User name and Password
-                String userName=editTextUserName.getText().toString();
-                String password=editTextPassword.getText().toString();
+                final String userName=editTextUserName.getText().toString();
+                final String password=editTextPassword.getText().toString();
+                ApiLogin log = new ApiLogin("POST",password,userName);
+                String url = "http://api.thibautruelens.tk/login.php";
+                Log.i("INFO", url);
+                log.setListener(new ApiLogin.Listener(){
 
-// fetch the Password form database for respective user name
-                String storedPassword=loginDataBaseAdapter.getSinlgeEntry(userName);
+                    @Override
+                    public void onResult(String result) {
+                        try {
+                            //view.setText(result);
+                            JSONObject jObject = new JSONObject(result);
+                            JSONArray jArray = jObject.getJSONArray("data");
+                            JSONObject oneObject = jArray.getJSONObject(0);
+                            String pass = oneObject.getString("password");
+                            String email = oneObject.getString("email");
 
-// check if the Stored password matches with Password entered by user
-                if(password.equals(storedPassword))
-                {
-                    Toast.makeText(HomeActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
-                    dialog.dismiss();
-                    Intent HomeGameScreen = new Intent(HomeActivity.this,MenuActivity.class);
-                    startActivity(HomeGameScreen);
-                }
-                else
-                {
-                    Toast.makeText(HomeActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
-                }
+                            if(pass.equals(password) && email.equals(userName)) {
+                                loginDataBaseAdapter.insertEntry(userName,password);
+                                Toast.makeText(HomeActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
+                                dialog.dismiss();
+                                Intent HomeGameScreen = new Intent(HomeActivity.this,MenuActivity.class);
+                                startActivity(HomeGameScreen);
+                            }
+                            else
+                            {
+                                Toast.makeText(HomeActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }});
+                log.execute(url);
             }
         });
 

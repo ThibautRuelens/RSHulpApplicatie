@@ -1,5 +1,6 @@
 package com.example.thibaut.rshulpapplicatie;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -9,6 +10,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +21,7 @@ public class MenuActivity extends AppCompatActivity {
     private static final String TAG = "Menu";
     private SectionsPageAdapter mSectionsPageAdapter;
     private ViewPager mViewPager;
+    LoginDataBaseAdapter loginDataBaseAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +42,14 @@ public class MenuActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
 
+    }
+    public void logout(View view){
+        loginDataBaseAdapter=new LoginDataBaseAdapter(this);
+        loginDataBaseAdapter=loginDataBaseAdapter.open();
+        loginDataBaseAdapter.deleteAll();
+        Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
+        Intent HomeGameScreen = new Intent(MenuActivity.this,HomeActivity.class);
+        startActivity(HomeGameScreen);
     }
 
 

@@ -73,6 +73,12 @@ public class LoginDataBaseAdapter
         cursor.close();
         return password;
     }
+    public int deleteAll()
+    {
+        int numberOFEntriesDeleted= db.delete("LOGIN", null,null) ;
+// Toast.makeText(context, "Number fo Entry Deleted Successfully : "+numberOFEntriesDeleted, Toast.LENGTH_LONG).show();
+        return numberOFEntriesDeleted;
+    }
     public boolean getCountEntry()
     {
         Cursor cursor=db.query("LOGIN", null, null, null, null, null, null);
