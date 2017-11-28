@@ -39,7 +39,7 @@ public class HomeActivity extends Activity
 
         Boolean known = loginDataBaseAdapter.getCountEntry();
         if(known == true)  {
-            Toast.makeText(HomeActivity.this, "Not logged out from last time", Toast.LENGTH_LONG).show();
+            Toast.makeText(HomeActivity.this, R.string.not_logged_out, Toast.LENGTH_LONG).show();
             Intent HomeGameScreen = new Intent(HomeActivity.this,MenuActivity.class);
             startActivity(HomeGameScreen);
 
@@ -93,14 +93,14 @@ public class HomeActivity extends Activity
 
                             if(pass.equals(password) && email.equals(userName)) {
                                 loginDataBaseAdapter.insertEntry(userName,password);
-                                Toast.makeText(HomeActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, R.string.success_login, Toast.LENGTH_LONG).show();
                                 dialog.dismiss();
                                 Intent HomeGameScreen = new Intent(HomeActivity.this,MenuActivity.class);
                                 startActivity(HomeGameScreen);
                             }
                             else
                             {
-                                Toast.makeText(HomeActivity.this, "User Name or Password does not match", Toast.LENGTH_LONG).show();
+                                Toast.makeText(HomeActivity.this, R.string.error_email_or_password, Toast.LENGTH_LONG).show();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();

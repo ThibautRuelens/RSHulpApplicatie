@@ -53,13 +53,13 @@ public class RegisterActivity extends Activity
 // check if any of the fields are vaccant
                 if(userName.equals("")||password.equals("")||confirmPassword.equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "Field Vaccant", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.error_field_required, Toast.LENGTH_LONG).show();
                     return;
                 }
 // check if both password matches
                 if(!password.equals(confirmPassword))
                 {
-                    Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.error_password_not_match, Toast.LENGTH_LONG).show();
                     return;
                 }
                 else
@@ -78,15 +78,13 @@ public class RegisterActivity extends Activity
                                                 boolean oneObjectsEmail = jObject.getBoolean("success");
                                                 String oneObjectsreturn = jObject.getString("return");
                                                 String oneObjectsuser = jObject.getString("user");
-
-                                                view.setText(oneObjectsreturn);
                                                 if(oneObjectsEmail == false) {
-                                                    view.setText(oneObjectsreturn);
+                                                    view.setText(R.string.error_user_exists);
                                                     view.setBackground(new ColorDrawable(Color.RED));
                                                 }else {
                                                     String oneObjectspass = jObject.getString("pass");
                                                     loginDataBaseAdapter.insertEntry(oneObjectsuser, oneObjectspass);
-                                                    Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getApplicationContext(), R.string.action_user_created, Toast.LENGTH_LONG).show();
                                                     Intent HomeGameScreen = new Intent(RegisterActivity.this,MenuActivity.class);
                                                     startActivity(HomeGameScreen);
                                                 }

@@ -10,14 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Enter username"/>
+        android:hint="@string/action_enter_item"/>
     <Button
         android:id="@+id/queryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
-        android:text="Search"
+        android:text="@string/action_search"
         android:onClick="getHighscore"/>
     <RelativeLayout
         android:layout_width="match_parent"

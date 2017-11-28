@@ -17,19 +17,19 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Highscores"
+            android:text="@string/highscore"
             android:layout_weight="1"
             android:id="@+id/HighscoreOSRS"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Grand Exchange"
+            android:text="@string/grand_exchange"
             android:layout_weight="1"
             android:id="@+id/GEOSRS"/>
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="Money Guides"
+            android:text="@string/money"
             android:layout_weight="1"
             android:id="@+id/MoneyOSRS"/>
     </LinearLayout>

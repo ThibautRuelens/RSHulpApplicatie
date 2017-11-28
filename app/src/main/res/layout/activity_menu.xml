@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="95dp"
-                android:text="Logout"
+                android:text="@string/prompt_logout"
                 android:onClick="logout"/>
         </android.support.v7.widget.Toolbar>
 

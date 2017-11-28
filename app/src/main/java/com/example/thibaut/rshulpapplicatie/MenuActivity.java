@@ -47,7 +47,7 @@ public class MenuActivity extends AppCompatActivity {
         loginDataBaseAdapter=new LoginDataBaseAdapter(this);
         loginDataBaseAdapter=loginDataBaseAdapter.open();
         loginDataBaseAdapter.deleteAll();
-        Toast.makeText(getApplicationContext(), "Account Successfully Created ", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.action_user_created, Toast.LENGTH_LONG).show();
         Intent HomeGameScreen = new Intent(MenuActivity.this,HomeActivity.class);
         startActivity(HomeGameScreen);
     }

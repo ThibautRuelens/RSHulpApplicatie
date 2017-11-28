@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RSHulpApplicatie</string>
+    <string name="title_activity_login">Aanmelden</string>
+
+    <!-- Strings relatedactivity_loginogin -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_logout">Afmelden</string>
+    <string name="prompt_password">Passwoord</string>
+    <string name="prompt_password_confirm">Bevestig Passwoord</string>
+    <string name="action_sign_in">Aanmelden of registeren</string>
+    <string name="action_sign_in_short">Aanmelden</string>
+    <string name="action_sign_up_short">Registeren</string>
+    <string name="action_sign_up_long">Gebruiker aanmaken</string>
+    <string name="action_enter_user">Geef gebruikersnaam in</string>
+    <string name="action_enter_item">Geef voorwerp in</string>
+    <string name="action_search">Zoeken</string>
+    <string name="error_invalid_email">Dit email adres is niet geldig</string>
+    <string name="error_invalid_password">Dit wachtwoord is te kort</string>
+    <string name="error_incorrect_password">Dit wachtwoord is incorrect</string>
+    <string name="error_field_required">Dit veld is verplicht</string>
+    <string name="action_ge_name">Naam: \n</string>
+    <string name="action_ge_member">Member: \n</string>
+    <string name="action_ge_price">Prijs: \n</string>
+    <string name="action_ge_change">Verandering: \n</string>
+
+    <string name="grand_exchange">Grand Exchange</string>
+    <string name="highscore">Highscore</string>
+    <string name="money">Money Guides</string>
+    <string name="title_activity_highscore_osrstabbed">HighscoreOSRSTabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_osrshighscore">OSRSHighscoreActivity</string>
+</resources>

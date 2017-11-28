@@ -30,7 +30,7 @@
                 android:id="@+id/item"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Name: \n"
+                android:text="@string/action_ge_name"
                 android:textColor="@android:color/white"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_weight="1"/>
@@ -38,7 +38,7 @@
                 android:id="@+id/ItemMember"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Member: \n"
+                android:text="@string/action_ge_member"
                 android:textColor="@android:color/white"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_weight="1"/>
@@ -53,7 +53,7 @@
             android:id="@+id/ItemPrice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Price: \n"
+            android:text="@string/action_ge_price"
             android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_weight="1" />
@@ -61,7 +61,7 @@
             android:id="@+id/ItemChange"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Change: \n"
+            android:text="@string/action_ge_change"
             android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_weight="1" />
