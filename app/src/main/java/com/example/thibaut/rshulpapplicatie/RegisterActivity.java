@@ -86,7 +86,9 @@ public class RegisterActivity extends Activity
                                                     loginDataBaseAdapter.insertEntry(oneObjectsuser, oneObjectspass);
                                                     Toast.makeText(getApplicationContext(), R.string.action_user_created, Toast.LENGTH_LONG).show();
                                                     Intent HomeGameScreen = new Intent(RegisterActivity.this,MenuActivity.class);
+                                                    HomeGameScreen.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                                     startActivity(HomeGameScreen);
+                                                    finish();
                                                 }
 
 

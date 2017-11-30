@@ -26,6 +26,7 @@
         completions."
     </string>
     <string name="error_email_or_password">Email or Password does not match</string>
+    <string name="action_choosen_skill">The skill you choose is </string>
     <string name="success_login">Congrats: Login Successfull</string>
     <string name="grand_exchange">Grand Exchange</string>
     <string name="highscore">Highscore</string>
@@ -34,7 +35,8 @@
     <string name="action_ge_member">Member: \n</string>
     <string name="action_ge_price">Price: \n</string>
     <string name="action_ge_change">Change: \n</string>
-
+    <string name="action_logout">Logged out</string>
+    <string name="action_choose_skill">Choose the skill which you want to make money with</string>
     <string name="title_activity_highscore_osrstabbed">HighscoreOSRSTabbedActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
@@ -42,4 +44,7 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_osrshighscore">OSRSHighscoreActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

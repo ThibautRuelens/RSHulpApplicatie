@@ -33,6 +33,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GEOSRSActivity"/>
         <activity android:name=".GERS3Activity"/>
+        <activity android:name=".MoneyOSRSActivity"/>
     </application>
 
 </manifest>

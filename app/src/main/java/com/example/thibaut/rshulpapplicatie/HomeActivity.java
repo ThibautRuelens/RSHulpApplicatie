@@ -42,6 +42,7 @@ public class HomeActivity extends Activity
             Toast.makeText(HomeActivity.this, R.string.not_logged_out, Toast.LENGTH_LONG).show();
             Intent HomeGameScreen = new Intent(HomeActivity.this,MenuActivity.class);
             startActivity(HomeGameScreen);
+            finish();
 
         }
 
@@ -96,7 +97,9 @@ public class HomeActivity extends Activity
                                 Toast.makeText(HomeActivity.this, R.string.success_login, Toast.LENGTH_LONG).show();
                                 dialog.dismiss();
                                 Intent HomeGameScreen = new Intent(HomeActivity.this,MenuActivity.class);
+                                HomeGameScreen.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                                 startActivity(HomeGameScreen);
+                                finish();
                             }
                             else
                             {

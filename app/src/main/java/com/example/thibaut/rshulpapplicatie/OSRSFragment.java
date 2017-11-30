@@ -45,11 +45,12 @@ public class OSRSFragment extends Fragment {
         Money.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent selectMoneyOSRS = new Intent(getActivity(),HighscoreRS3Activity.class);
+                Intent selectMoneyOSRS = new Intent(getActivity(),MoneyOSRSActivity.class);
                 selectMoneyOSRS.putExtra("Title","OSRS Money methodes");
                 startActivity(selectMoneyOSRS);
             }
         });
         return view;
     }
+
 }

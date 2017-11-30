@@ -9,8 +9,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -35,6 +36,13 @@ public class MenuActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i("haha","Test");
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new OSRSFragment(),"OSRS");
@@ -43,11 +51,12 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
+
     public void logout(View view){
         loginDataBaseAdapter=new LoginDataBaseAdapter(this);
         loginDataBaseAdapter=loginDataBaseAdapter.open();
         loginDataBaseAdapter.deleteAll();
-        Toast.makeText(getApplicationContext(), R.string.action_user_created, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), R.string.action_logout, Toast.LENGTH_LONG).show();
         Intent HomeGameScreen = new Intent(MenuActivity.this,HomeActivity.class);
         startActivity(HomeGameScreen);
     }

@@ -34,7 +34,9 @@
     <string name="grand_exchange">Grand Exchange</string>
     <string name="highscore">Highscore</string>
     <string name="money">Money Guides</string>
-
+    <string name="action_choosen_skill">De skill die je gekozen hebt is </string>
+    <string name="action_logout">Afgemeld</string>
+    <string name="action_choose_skill">Kies de skill waar je manier om geld mee te maken wil zien</string>
     <string name="title_activity_highscore_osrstabbed">HighscoreOSRSTabbedActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
