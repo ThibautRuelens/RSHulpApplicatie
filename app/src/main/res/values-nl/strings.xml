@@ -24,6 +24,12 @@
     <string name="action_ge_price">Prijs: \n</string>
     <string name="action_ge_change">Verandering: \n</string>
 
+    <string name="action_money_name">Naam: \n</string>
+    <string name="action_money_Requirement">Vereisten: \n</string>
+    <string name="action_money_price">Nodig geld: \n</string>
+    <string name="action_money_sell">Verkoop prijs: \n</string>
+    <string name="action_money_profit">winst: \n</string>
+
     <!-- Strings relatedactivity_loginogin -->
     <string name="error_password_not_match">Passwoord zijn niet gelijk</string>
     <string name="not_logged_out">Niet afgemeld van vorige keer</string>

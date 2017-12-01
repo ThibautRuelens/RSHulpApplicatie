@@ -44,7 +44,7 @@ public class RS3Fragment extends Fragment {
         Money.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent selectMoneyS3 = new Intent(getActivity(),HighscoreRS3Activity.class);
+                Intent selectMoneyS3 = new Intent(getActivity(),MoneyRS3Activity.class);
                 selectMoneyS3.putExtra("Title","RS3 Money Methodes");
                 startActivity(selectMoneyS3);
             }

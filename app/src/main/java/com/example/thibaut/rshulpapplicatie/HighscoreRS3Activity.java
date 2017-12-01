@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -47,6 +48,9 @@ public class HighscoreRS3Activity extends AppCompatActivity {
         Api api = new Api(pr);
         final Context context = this;
         usernameText = (EditText) findViewById(R.id.usernameText);
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(usernameText.getWindowToken(), 0);
         String username = usernameText.getText().toString();
         username = username.replaceAll(" ", "+");
         String url = "http://services.runescape.com/m=hiscore/index_lite.ws?player=" + username;

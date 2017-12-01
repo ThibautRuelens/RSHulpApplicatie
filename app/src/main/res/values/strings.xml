@@ -35,6 +35,11 @@
     <string name="action_ge_member">Member: \n</string>
     <string name="action_ge_price">Price: \n</string>
     <string name="action_ge_change">Change: \n</string>
+    <string name="action_money_name">Name: \n</string>
+    <string name="action_money_Requirement">Requirement: \n</string>
+    <string name="action_money_price">Money needed: \n</string>
+    <string name="action_money_sell">Sell price: \n</string>
+    <string name="action_money_profit">profit: \n</string>
     <string name="action_logout">Logged out</string>
     <string name="action_choose_skill">Choose the skill which you want to make money with</string>
     <string name="title_activity_highscore_osrstabbed">HighscoreOSRSTabbedActivity</string>

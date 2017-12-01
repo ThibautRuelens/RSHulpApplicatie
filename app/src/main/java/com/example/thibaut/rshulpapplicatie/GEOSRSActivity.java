@@ -3,6 +3,7 @@ package com.example.thibaut.rshulpapplicatie;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -76,6 +78,9 @@ public class GEOSRSActivity extends AppCompatActivity {
         Api api = new Api(pr);
         itemText = (EditText) findViewById(R.id.itemText);
         String item = itemText.getText().toString();
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(itemText.getWindowToken(), 0);
         item = item.replaceAll(" ", "%20");
         String url = "http://api.thibautruelens.tk/items.php?table=osrsitem&name=" + item;
         Log.i("INFO", url);

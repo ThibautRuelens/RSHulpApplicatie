@@ -2,7 +2,6 @@ package com.example.thibaut.rshulpapplicatie;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Spinner;
 
@@ -10,11 +9,11 @@ import android.widget.Spinner;
  * Created by Thibaut on 30/11/2017.
  */
 
-public class MoneyOSRSActivity extends AppCompatActivity implements FragmentInterface {
+public class MoneyRS3Activity extends AppCompatActivity implements FragmentInterface {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_money_osrs);
+        setContentView(R.layout.activity_money_rs3);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -29,8 +28,7 @@ public class MoneyOSRSActivity extends AppCompatActivity implements FragmentInte
     @Override
     public void spinnerClicked(Spinner spinner,Integer position) {
         String spin = spinner.getItemAtPosition(position).toString();
-
-        SecondFragment fragment = (SecondFragment) getSupportFragmentManager().findFragmentById(R.id.second_fragment);
-        fragment.updateData(spin,"OSRS");
+        SecondFragment fragment = (SecondFragment)getSupportFragmentManager().findFragmentById(R.id.second_fragment);
+        fragment.updateData(spin,"RS3");
     }
 }
