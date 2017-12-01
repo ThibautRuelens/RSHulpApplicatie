@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    android:gravity="center_vertical">
+    android:gravity="center">
 
 
 
@@ -15,9 +15,11 @@
 
         android:id="@+id/editTextUserNameToLogin"
 
-        android:layout_width="match_parent"
+        android:layout_width="450dp"
 
         android:layout_height="wrap_content"
+
+
 
         android:hint="@string/prompt_email"
 
@@ -33,7 +35,7 @@
 
         android:id="@+id/editTextPasswordToLogin"
 
-        android:layout_width="match_parent"
+        android:layout_width="450dp"
 
         android:layout_height="wrap_content"
 
@@ -49,7 +51,7 @@
 
         android:id="@+id/buttonSignIn"
 
-        android:layout_width="fill_parent"
+        android:layout_width="450dp"
 
         android:layout_height="wrap_content"
 

@@ -58,7 +58,9 @@ public class MenuActivity extends AppCompatActivity {
         loginDataBaseAdapter.deleteAll();
         Toast.makeText(getApplicationContext(), R.string.action_logout, Toast.LENGTH_LONG).show();
         Intent HomeGameScreen = new Intent(MenuActivity.this,HomeActivity.class);
+        HomeGameScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(HomeGameScreen);
+        finish();
     }
 
 

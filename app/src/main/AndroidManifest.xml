@@ -34,6 +34,7 @@
         <activity android:name=".GEOSRSActivity" />
         <activity android:name=".GERS3Activity" />
         <activity android:name=".MoneyOSRSActivity" />
+        <activity android:name=".LoginActivity" />
         <activity android:name=".MoneyRS3Activity"></activity>
     </application>
 

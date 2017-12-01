@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -21,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class RegisterActivity extends Activity
+public class RegisterActivity extends AppCompatActivity
 {
     EditText editTextUserName,editTextPassword,editTextConfirmPassword;
     Button btnCreateAccount;
@@ -32,7 +34,8 @@ public class RegisterActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 // get Instance of Database Adapter
         loginDataBaseAdapter=new LoginDataBaseAdapter(this);
         loginDataBaseAdapter=loginDataBaseAdapter.open();
@@ -88,7 +91,7 @@ public class RegisterActivity extends Activity
                                                     loginDataBaseAdapter.insertEntry(oneObjectsuser, oneObjectspass);
                                                     Toast.makeText(getApplicationContext(), R.string.action_user_created, Toast.LENGTH_LONG).show();
                                                     Intent HomeGameScreen = new Intent(RegisterActivity.this,MenuActivity.class);
-                                                    HomeGameScreen.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                                                    HomeGameScreen.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                     startActivity(HomeGameScreen);
                                                     finish();
                                                 }
@@ -108,6 +111,13 @@ public class RegisterActivity extends Activity
                 }
             }
         });
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id= item.getItemId();
+        if(id == android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
     @Override
     protected void onDestroy() {

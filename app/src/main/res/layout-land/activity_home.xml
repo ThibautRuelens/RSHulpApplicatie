@@ -8,21 +8,21 @@
 
     android:orientation="vertical"
 
-    android:gravity="center_vertical" >
+    android:gravity="center">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Database"
-        android:id="@+id/test"
-        android:onClick="Database"
-        android:gravity="center"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Database"
+    android:id="@+id/test"
+    android:onClick="Database"
+    android:gravity="center"/>
 
     <Button
 
         android:id="@+id/buttonSignIN"
 
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
 
         android:layout_height="wrap_content"
 
@@ -36,7 +36,7 @@
 
         android:id="@+id/buttonSignUP"
 
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
 
         android:layout_height="wrap_content"
 
