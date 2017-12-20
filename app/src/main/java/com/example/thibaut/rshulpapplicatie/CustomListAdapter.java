@@ -54,7 +54,13 @@ public class CustomListAdapter extends ArrayAdapter<String> {
         txtChange = (TextView)rowView.findViewById(R.id.ItemChange);
         imageView = (ImageView)rowView.findViewById(R.id.icon);
         txtTitle.append(itemname.get(position));
-        txtMember.append(members.get(position));
+        if (members.get(position).equals("true")) {
+          txtMember.append(context.getString(R.string.member_true));
+        }else {
+            if (members.get(position).equals("false")) {
+                txtMember.append(context.getString(R.string.member_false));
+            }
+        }
         txtPrice.append(price.get(position));
         txtChange.append(currentLose.get(position));
         loadImageFromUrl(image.get(position));

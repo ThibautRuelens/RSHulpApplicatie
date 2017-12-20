@@ -25,6 +25,10 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="member_true">Yes</string>
+    <string name="member_false">No</string>
+    <string name="error_player_not_found">Player not found, try another username</string>
+    <string name="error_item_not_found">Item not found, try another item</string>
     <string name="error_email_or_password">Email or Password does not match</string>
     <string name="action_choosen_skill">The skill you choose is </string>
     <string name="success_login">Congrats: Login Successfull</string>

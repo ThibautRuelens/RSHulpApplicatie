@@ -88,6 +88,7 @@ public class GEOSRSActivity extends AppCompatActivity {
 
             @Override
             public void onTaskResult(String string){
+                Log.i("info",string);
                 try {
                     JSONObject jObject = new JSONObject(string);
                     JSONArray jArray = jObject.getJSONArray("data");
@@ -96,43 +97,60 @@ public class GEOSRSActivity extends AppCompatActivity {
                     image.clear();
                     currentpriceArr.clear();
                     todaypriceArr.clear();
-                    for (int i=0; i < jArray.length(); i++)
-                    {
-                        try {
-                            JSONObject oneObject = jArray.getJSONObject(i);
-                            // Pulling items from the array
-                            String oneObjectsImage = oneObject.getString("icon");
-                            String oneObjectsName = oneObject.getString("name");
-                            String oneObjectsmember = oneObject.getString("members");
-                            String current = oneObject.getString("current");
-                            String today = oneObject.getString("today");
-                            JSONObject currentObject = new JSONObject(current);
-                            JSONObject todayObject = new JSONObject(today);
-                            Integer currentprice = currentObject.getInt("price");
-                            Integer todayprice = todayObject.getInt("price");
-                            itemname.add(oneObjectsName);
-                            members.add(oneObjectsmember);
-                            image.add(oneObjectsImage);
-                            currentpriceArr.add(currentprice.toString());
-                            todaypriceArr.add(todayprice.toString());
-                        } catch (JSONException e) {
-                            // Oops
-                        }
+                    if(jArray.length()<=0) {
+                        TextView error = (TextView)findViewById(R.id.error_msg);
+                        error.setText(R.string.error_item_not_found);
+                    }
+                    else {
+                        for (int i = 0; i < jArray.length(); i++) {
+                            try {
+                                JSONObject oneObject = jArray.getJSONObject(i);
+                                // Pulling items from the array
+                                String oneObjectsImage = oneObject.getString("icon");
+                                String oneObjectsName = oneObject.getString("name");
+                                String oneObjectsmember = oneObject.getString("members");
+                                String current = oneObject.getString("current");
+                                String today = oneObject.getString("today");
+                                JSONObject currentObject = new JSONObject(current);
+                                JSONObject todayObject = new JSONObject(today);
+                                try {
+                                    Integer currentprice = currentObject.getInt("price");
+                                    currentpriceArr.add(currentprice.toString());
+                                } catch (JSONException e) {
+                                    String currentprice = currentObject.getString("price");
+                                    currentpriceArr.add(currentprice);
+                                }
+                                try {
+                                    Integer todayprice = todayObject.getInt("price");
+                                    todaypriceArr.add(todayprice.toString());
 
-                        CustomListAdapter adapter;
-                        adapter = new CustomListAdapter(activity,itemname,members,image,currentpriceArr,todaypriceArr);
-                        list =(ListView)findViewById(R.id.list);
-                        list.setAdapter(adapter);
-                        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view,
-                                                    int position, long id) {
-                                // TODO Auto-generated method stub
-                                String Slecteditem= itemname.get(position);
-                                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
-
+                                } catch (JSONException e) {
+                                    String todayprice = todayObject.getString("price");
+                                    todaypriceArr.add(todayprice);
+                                }
+                                itemname.add(oneObjectsName);
+                                members.add(oneObjectsmember);
+                                image.add(oneObjectsImage);
+                            } catch (JSONException e) {
+                                // Oops
                             }
-                        });
+                            TextView error = (TextView) findViewById(R.id.error_msg);
+                            error.setText("");
+                            CustomListAdapter adapter;
+                            adapter = new CustomListAdapter(activity, itemname, members, image, currentpriceArr, todaypriceArr);
+                            list = (ListView) findViewById(R.id.list);
+                            list.setAdapter(adapter);
+                            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view,
+                                                        int position, long id) {
+                                    // TODO Auto-generated method stub
+                                    String Slecteditem = itemname.get(position);
+                                    Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
+                        }
                     }
 
                 } catch (JSONException e) {

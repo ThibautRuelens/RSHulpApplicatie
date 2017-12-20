@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import org.json.JSONException;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -54,6 +55,7 @@ public class Api extends AsyncTask<String,Void,String> {
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+
                 StringBuilder stringBuilder = new StringBuilder();
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
@@ -62,13 +64,16 @@ public class Api extends AsyncTask<String,Void,String> {
                 bufferedReader.close();
                 return stringBuilder.toString();
             }
+            catch (FileNotFoundException e) {
+                return "Not found";
+            }
             finally{
                 urlConnection.disconnect();
             }
         }
         catch(Exception e) {
             Log.e("ERROR", e.getMessage(), e);
-            return null;
+            return "false";
         }
     }
 }

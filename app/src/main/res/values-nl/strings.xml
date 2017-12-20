@@ -23,6 +23,11 @@
     <string name="action_ge_member">Member: \n</string>
     <string name="action_ge_price">Prijs: \n</string>
     <string name="action_ge_change">Verandering: \n</string>
+    <string name="error_player_not_found">Speler niet gevonden, probeer een andere gebruikersnaam </string>
+    <string name="error_item_not_found">Voorwerp niet gevonden, probeer een ander voorwerp </string>
+    <string name="member_true">Ja</string>
+    <string name="member_false">Nee</string>
+
 
     <string name="action_money_name">Naam: \n</string>
     <string name="action_money_Requirement">Vereisten: \n</string>

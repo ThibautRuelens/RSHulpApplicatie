@@ -59,63 +59,77 @@ public class HighscoreRS3Activity extends AppCompatActivity {
 
             @Override
             public void onTaskResult(String string) {
-        List<String> levels = Arrays.asList(string.split("\n"));
-        List<String> defenition = Arrays.asList("Skill", "Rank", "Level", "XP");
-        List<String> Skills = Arrays.asList("Header","Overall", "Attack", "Defence", "Strength", "Hitpoints", "Ranged", "Prayer", "Magic","Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting", "Smithing", "Mining", "Herblore","Agility", "Thieving", "Slayer", "Farming", "Runecraft", "Hunter", "Construction", "Summoning", "Dungeoneering", "Divination", "Inventions");
-        LinearLayout responseview = (LinearLayout)findViewById(R.id.responseView);
-        responseview.removeAllViews();
-        for (int i = 0; i < Skills.size(); i++) {
-            LinearLayout newLayout = new LinearLayout(context);
-            newLayout.setOrientation(LinearLayout.HORIZONTAL);
-            newLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-            newLayout.setWeightSum(4);
-            for (int j = 0; j < defenition.size(); j++) {
-                TextView newText = new TextView(context);
-                newText.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1f));
-                if (i == 0) {
-                    newText.setText(defenition.get(j));
+                Log.i("info", string);
+                if (string.equals("Not found")) {
+                    LinearLayout responseview = (LinearLayout) findViewById(R.id.responseView);
+                    LinearLayout newLayout = new LinearLayout(context);
+                    newLayout.setOrientation(LinearLayout.HORIZONTAL);
+                    newLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+                    newLayout.setWeightSum(4);
+                    responseview.removeAllViews();
+                    TextView newText = new TextView(context);
+                    newText.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1f));
+                    newText.setText(R.string.error_player_not_found);
                     newLayout.addView(newText);
+                    responseview.addView(newLayout);
                 } else {
-                    if (j == 0) {
-                        newText.setText(Skills.get(i));
-                        newLayout.addView(newText);
-                    } else {
-                        List<String> skill = Arrays.asList(levels.get(i - 1).split(","));
-                        Log.d("list", skill.get(j - 1));
-                        if (j == 1 && skill.get(j - 1).equals("-1")) {
-                            newText.setText("No rank");
-                            newLayout.addView(newText);
-                        } else {
-                            if (j == 3 && skill.get(j - 1).equals("-1")) {
-                                newText.setText("0");
+                    List<String> levels = Arrays.asList(string.split("\n"));
+                    List<String> defenition = Arrays.asList("Skill", "Rank", "Level", "XP");
+                    List<String> Skills = Arrays.asList("Header", "Overall", "Attack", "Defence", "Strength", "Hitpoints", "Ranged", "Prayer", "Magic", "Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting", "Smithing", "Mining", "Herblore", "Agility", "Thieving", "Slayer", "Farming", "Runecraft", "Hunter", "Construction", "Summoning", "Dungeoneering", "Divination", "Inventions");
+                    LinearLayout responseview = (LinearLayout) findViewById(R.id.responseView);
+                    responseview.removeAllViews();
+                    for (int i = 0; i < Skills.size(); i++) {
+                        LinearLayout newLayout = new LinearLayout(context);
+                        newLayout.setOrientation(LinearLayout.HORIZONTAL);
+                        newLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+                        newLayout.setWeightSum(4);
+                        for (int j = 0; j < defenition.size(); j++) {
+                            TextView newText = new TextView(context);
+                            newText.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1f));
+                            if (i == 0) {
+                                newText.setText(defenition.get(j));
                                 newLayout.addView(newText);
                             } else {
-                                String str = skill.get(j - 1);
+                                if (j == 0) {
+                                    newText.setText(Skills.get(i));
+                                    newLayout.addView(newText);
+                                } else {
+                                    List<String> skill = Arrays.asList(levels.get(i - 1).split(","));
+                                    Log.d("list", skill.get(j - 1));
+                                    if (j == 1 && skill.get(j - 1).equals("-1")) {
+                                        newText.setText("No rank");
+                                        newLayout.addView(newText);
+                                    } else {
+                                        if (j == 3 && skill.get(j - 1).equals("-1")) {
+                                            newText.setText("0");
+                                            newLayout.addView(newText);
+                                        } else {
+                                            String str = skill.get(j - 1);
 
-                                char[] chars = new char[str.length() + (str.length() / 3)];
+                                            char[] chars = new char[str.length() + (str.length() / 3)];
 
-                                int offset = str.length() % 3;
-                                int idx = 0, strIdx = 0;
+                                            int offset = str.length() % 3;
+                                            int idx = 0, strIdx = 0;
 
-                                for (; strIdx < str.length(); idx++, strIdx++)
-                                {
-                                    if (((strIdx % 3) == offset) && (strIdx != 0))
-                                        chars[idx++] = '.';
-                                    chars[idx] = str.charAt(strIdx);
+                                            for (; strIdx < str.length(); idx++, strIdx++) {
+                                                if (((strIdx % 3) == offset) && (strIdx != 0))
+                                                    chars[idx++] = '.';
+                                                chars[idx] = str.charAt(strIdx);
+                                            }
+
+                                            String str2 = new String(chars);
+                                            newText.setText(str2.toString());
+                                            newLayout.addView(newText);
+                                        }
+                                    }
                                 }
 
-                                String str2 = new String(chars);
-                                newText.setText(str2.toString());
-                                newLayout.addView(newText);
                             }
                         }
+                        responseview.addView(newLayout);
                     }
-
                 }
             }
-            responseview.addView(newLayout);
-        }
-    }
 
 
 });
