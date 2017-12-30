@@ -8,7 +8,7 @@ import android.widget.Spinner;
 /**
  * Created by Thibaut on 30/11/2017.
  */
-
+//Klasse die alle activities in money guides van RS3 managed
 public class MoneyRS3Activity extends AppCompatActivity implements FragmentInterface {
 
     protected void onCreate(Bundle savedInstanceState) {

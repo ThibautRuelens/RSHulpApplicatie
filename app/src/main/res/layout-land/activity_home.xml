@@ -10,13 +10,13 @@
 
     android:gravity="center">
 
-<TextView
+<!--<TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="Database"
     android:id="@+id/test"
     android:onClick="Database"
-    android:gravity="center"/>
+    android:gravity="center"/>-->
 
     <Button
 

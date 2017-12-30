@@ -20,7 +20,7 @@ import java.util.ArrayList;
 /**
  * Created by Thibaut on 22/11/2017.
  */
-
+//Klasse die een custom list maakt voor het tonen van items in Grand Exchange
 public class CustomListAdapter extends ArrayAdapter<String> {
     private final Activity context;
     private final ArrayList<String> itemname;

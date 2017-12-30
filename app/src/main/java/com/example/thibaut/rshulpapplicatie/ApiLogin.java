@@ -35,7 +35,7 @@ import static java.lang.Integer.parseInt;
  * Created by Thibaut on 22/11/2017.
  */
 
-
+//API klasse die alles doet ivm Login en Register
 public class ApiLogin extends AsyncTask<String,Void,String> {
 
     private Listener mListener;

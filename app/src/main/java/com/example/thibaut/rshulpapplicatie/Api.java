@@ -21,7 +21,7 @@ import java.net.URL;
 /**
  * Created by Thibaut on 15/11/2017.
  */
-
+//API klasse die alle opzoekingen doet ivm Items/Highscores
 public class Api extends AsyncTask<String,Void,String> {
     private ProgressBar mProgressBar;
 

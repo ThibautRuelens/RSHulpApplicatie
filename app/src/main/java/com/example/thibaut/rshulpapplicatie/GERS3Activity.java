@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
+//Klasse die alle activities in Grand Exchange van RS3 managed
 public class GERS3Activity extends AppCompatActivity {
     public EditText itemText;
     public ProgressBar pr ;

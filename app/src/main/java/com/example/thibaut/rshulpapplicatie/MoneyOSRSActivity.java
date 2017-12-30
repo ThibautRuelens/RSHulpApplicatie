@@ -9,7 +9,7 @@ import android.widget.Spinner;
 /**
  * Created by Thibaut on 30/11/2017.
  */
-
+//Klasse die alle activities in Money guides van OSRS managed
 public class MoneyOSRSActivity extends AppCompatActivity implements FragmentInterface {
 
     protected void onCreate(Bundle savedInstanceState) {

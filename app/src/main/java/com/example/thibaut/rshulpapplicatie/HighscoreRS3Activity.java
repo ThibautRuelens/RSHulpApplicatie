@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
+//Klasse die alle activities in Highscores van RS3 managed
 public class HighscoreRS3Activity extends AppCompatActivity {
     public EditText usernameText;
     ProgressBar pr;

@@ -17,7 +17,6 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 public class HomeActivity extends Activity
 {
     Button btnSignIn,btnSignUp;
@@ -36,7 +35,7 @@ public class HomeActivity extends Activity
 // Get The Refference Of Buttons
         btnSignIn=(Button)findViewById(R.id.buttonSignIN);
         btnSignUp=(Button)findViewById(R.id.buttonSignUP);
-
+//Dit kijkt of er nog een user in de database staat, zo ja moet hij zich niet meer inloggen.
         Boolean known = loginDataBaseAdapter.getCountEntry();
         if(known == true)  {
             Toast.makeText(HomeActivity.this, R.string.not_logged_out, Toast.LENGTH_LONG).show();

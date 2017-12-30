@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
+//Klasse die alle activities in Highscores van OSRS managed
 public class HighscoreOSRSActivity extends AppCompatActivity {
     public EditText usernameText;
     ProgressBar pr;

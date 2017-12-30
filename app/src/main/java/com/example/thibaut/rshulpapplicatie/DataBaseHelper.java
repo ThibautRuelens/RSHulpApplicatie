@@ -11,6 +11,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+//Hulp klasse om te kijken wat er in de database staat
 public class DataBaseHelper extends SQLiteOpenHelper
 {
     static final String DATABASE_NAME = "login.db";
