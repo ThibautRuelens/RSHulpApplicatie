@@ -98,6 +98,20 @@ public class GERS3Activity extends AppCompatActivity {
                     if(jArray.length()<=0) {
                         TextView error = (TextView)findViewById(R.id.error_msg);
                         error.setText(R.string.error_item_not_found);
+                        CustomListAdapter adapter;
+                        adapter = new CustomListAdapter(activity, itemname, members, image, currentpriceArr, todaypriceArr);
+                        list = (ListView) findViewById(R.id.list);
+                        list.setAdapter(adapter);
+                        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view,
+                                                    int position, long id) {
+                                // TODO Auto-generated method stub
+                                String Slecteditem = itemname.get(position);
+                                Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
                     }
                     else {
                         for (int i = 0; i < jArray.length(); i++) {

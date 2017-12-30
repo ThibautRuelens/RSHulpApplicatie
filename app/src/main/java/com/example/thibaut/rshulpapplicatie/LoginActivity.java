@@ -3,6 +3,7 @@ package com.example.thibaut.rshulpapplicatie;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -52,6 +54,9 @@ public class LoginActivity extends AppCompatActivity{
 // get The User name and Password
                 final String userName=editTextUserName.getText().toString();
                 final String password=editTextPassword.getText().toString();
+                InputMethodManager imm = (InputMethodManager)getSystemService(
+                        Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(btnSignIn.getWindowToken(), 0);
                 ApiLogin log = new ApiLogin("POST",password,userName);
                 String url = "http://api.thibautruelens.tk/login.php";
                 Log.i("INFO", url);

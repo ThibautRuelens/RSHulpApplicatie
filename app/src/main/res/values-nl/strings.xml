@@ -40,7 +40,7 @@
     <string name="not_logged_out">Niet afgemeld van vorige keer</string>
     <string name="error_user_exists">Email is al in gebruik</string>
     <string name="action_user_created">Gebruiker aangemaakt</string>
-    <string name="error_email_or_password">Emaim of Passwoord zijn niet juist</string>
+    <string name="error_email_or_password">Email of Passwoord zijn niet juist</string>
     <string name="success_login">Aanmelden gelukt</string>
     <string name="grand_exchange">Grand Exchange</string>
     <string name="highscore">Highscore</string>
